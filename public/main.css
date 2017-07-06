@@ -16,6 +16,10 @@ body {
 }
 
 
+h1 {
+    color: black;
+}
+
 .mainButtons {
     margin: 0 auto;
     text-align: center;
@@ -30,6 +34,7 @@ body {
     color: lightcoral;
     margin: 20px;
     border: none;
+    border-radius: 10px;
     border: 1px solid lightcoral;
     transition: all 1s;
 }
@@ -47,5 +52,25 @@ body {
     width: 20%;
     justify-content: space-around;
     margin: 0 auto;
+    margin-top: 10%;
+}
 
+
+.newSbmt {
+    -webkit-appearance: none;
+    height: 4rem;
+    background: none;
+    border: 1px solid lightblue;
+    font-size: 2rem;
+    color: lightblue;
+    transition: all 2s;
+    border-radius: 10px;
+    
+}
+
+.newSbmt:hover {
+    background: lightblue;
+    color: white;
+    transition: all 2s;
+    cursor: pointer;
 }

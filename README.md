@@ -1,1 +1,1 @@
-An Express app built with MongoDB and Mongoose ODM.
+An Express app built with Mustache, Express, MongoDB and the Mongoose ODM.

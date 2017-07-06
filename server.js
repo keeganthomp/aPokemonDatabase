@@ -15,6 +15,7 @@ app.set("views", "./views");
 //MIDDLEWARE
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+app.use("/", express.static("public"));
 
 //DB CONNECTION
 mongoose.connect(dbUrl).then((err, db) => {
@@ -24,20 +25,22 @@ mongoose.connect(dbUrl).then((err, db) => {
   console.log("Connected to the DB");
 });
 
-//ROUTES
+
 app.get("/pokemon", (req, res) => {
-  pokemon
-    .find()
-    .then(foundPokes => {
-      res.send(foundPokes);
-    })
-    .catch(err => {
-      res.send(err);
-    });
+  Pokemon.find().then(allPokemon => {
+  res.render("pokedex", {allPokemon: allPokemon} );
+  }).catch(err=>{
+    res.send(err);
+  })
 });
 
-app.get("/", (req, res) => {
+app.get("/", (req, res)=>{
   res.render("index");
+})
+
+
+app.get("/newPokemon", (req,res)=>{
+  res.render("newPokemon");
 });
 
 app.post("/pokemon", (req, res) => {
@@ -47,7 +50,7 @@ app.post("/pokemon", (req, res) => {
   newPokemon
     .save()
     .then(savedPokemon => {
-      res.send(savedPokemon);
+      res.redirect("/pokemon");
     })
     .catch(err => {
       res.send(err);
@@ -62,10 +65,20 @@ app.get("/pokemon/:name", (req, res) => {
     });
 });
 
-app.post("/pokemon/:id", (req, res) => {
-  Pokemon.updateOne({ _id: req.params.id }, req.body)
+app.post("/pokemon/:name", (req, res) => {
+  Pokemon.updateOne({ name: req.params.name }, req.body)
     .then(updatedPokemon => {
-      res.send(updatedPokemon);
+      res.redirect();
+    })
+    .catch(err => {
+      res.status(500).send(err);
+    });
+});
+
+app.post("/delete/:id", (req, res) => {
+  Pokemon.deleteOne({_id: req.params.id })
+    .then(() => {
+      res.redirect("/pokemon")
     })
     .catch(err => {
       res.status(500).send(err);

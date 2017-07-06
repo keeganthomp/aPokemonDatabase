@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <title></title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="main.css" rel="stylesheet">
+</head>
+
+<body>
+    <h1>Pokemon</h1>
+    
+<div class="pokemonWrapper">
+
+{{#allPokemon}}
+    <div>Name: {{name}}</div>
+    <div>Type: {{type}}</div>
+    <div>Pokemon Gender: {{gender}}</div>
+    <div>Pkemon Size: {{size}}</div>
+    <div>Pokemon: health{{health}}</div>
+    {{#owner}}
+        {{#name}}
+            <div>Owner First Name: {{firstName}}</div>
+            <div>Owner Last Name: {{lastName}}</div>
+        {{/name}}
+        <div>Owner age: {{age}}</div>
+        <div>Owner gender: {{gender}}</div>
+    {{/owner}}
+<a href="/pokemon/{{name}}"><button>Update</button></a>
+<form action="/delete/{{_id}}" method="post">
+    <input type="submit" value="delete">
+</form> 
+{{/allPokemon}}
+    </div>
+
+
+
+</body>
+
+</html>

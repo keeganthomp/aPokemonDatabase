@@ -1,0 +1,51 @@
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  text-align: center;
+  background-image: url("http://cdn.wallpapersafari.com/52/98/OqJ5BP.jpg");
+  background-repeat: no-repeat;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+}
+
+.pokemonWrapper {
+  display: flex;
+  flex-direction: column;
+  width: 30%;
+}
+
+
+.mainButtons {
+    margin: 0 auto;
+    text-align: center;
+    font-size: 3rem;
+}
+
+
+.homeBtns {
+    font-size: 3rem;
+    -webkit-appearance: none;
+    background: none;
+    color: lightcoral;
+    margin: 20px;
+    border: none;
+    border: 1px solid lightcoral;
+    transition: all 1s;
+}
+
+.homeBtns:hover{
+    background: lightcoral;
+    color: white;
+    transition: all 1s;
+    cursor: pointer;
+}
+
+.newPoke {
+    display: flex;
+    flex-direction: column;
+    width: 20%;
+    justify-content: space-around;
+    margin: 0 auto;
+
+}

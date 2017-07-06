@@ -68,7 +68,7 @@ app.get("/pokemon/:name", (req, res) => {
 app.post("/pokemon/:name", (req, res) => {
   Pokemon.updateOne({ name: req.params.name }, req.body)
     .then(updatedPokemon => {
-      res.redirect();
+      res.redirect("/pokemon");
     })
     .catch(err => {
       res.status(500).send(err);

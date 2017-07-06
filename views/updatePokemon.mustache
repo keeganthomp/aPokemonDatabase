@@ -5,13 +5,13 @@
     <title></title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link href="main.css" rel="stylesheet">
+    <link href="/main.css" rel="stylesheet">
 </head>
 
 <body>
     <h1>You are editing you pokemon '{{foundPokemon.name}}'!</h1>
     <br>
-    <form action="/pokemon/{{foundPokemon._id}}" method="post">
+    <form class="updatePoke" action="/pokemon/{{foundPokemon.name}}" method="post">
         <br>
         <label>name</label><input type="text" name="name" value="{{foundPokemon.name}}">
         <br>
@@ -23,7 +23,7 @@
         <br>
         <label>health</label><input type="text" name="health" value="{{foundPokemon.health}}">
         <br>
-        <label>first name</label><input type="text" name="owner.name.firstName" value="{{foundPokemon.owner.name.firstName}">
+        <label>first name</label><input type="text" name="owner.name.firstName" value="{{foundPokemon.owner.name.firstName}}">
         <br>
         <label>last name</label><input type="text" name="owner.name.lastName" value="{{foundPokemon.owner.name.lastName}}">
         <br>
